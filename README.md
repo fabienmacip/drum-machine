@@ -4,6 +4,11 @@ npm install --save styled-components
 npm install react-router-dom
 npm install tone
 
+
+# BONUS
+Banque de sons
+https://reverb.com/fr/software/samples-and-loops/reverb/3514-reverb-drum-machines-the-complete-collection
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
