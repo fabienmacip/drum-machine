@@ -13,6 +13,7 @@ const Wrapper = styled.div`
     rgba(152,221,202,1) 100%
   );
   position: relative;
+  overflow: hidden;
   &::before{
     position: absolute;
     content: "";
