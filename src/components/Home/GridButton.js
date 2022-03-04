@@ -53,6 +53,7 @@ const Wrapper = styled.div`
     position : absolute;
     right: 12px;
     top: 12px;
+    font-size: 18px;
   }
 
 `;

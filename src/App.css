@@ -53,3 +53,7 @@ table {
 /* ----------------- FIN de la réinitialisation du CSS -------------------------- */
 
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+nav {
+	display: inline-flex;
+}

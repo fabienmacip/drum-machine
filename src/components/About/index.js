@@ -6,9 +6,15 @@ export default function About() {
       <h1>
         About
       </h1>
-       
+      <p>
+        Projet guid&eacute;, r&eacute;alis&eacute; dans le cadre de la formation "Graduate Developper Full Stack" chez Digital Campus.
+      </p>
     </Wrapper>
   )
 }
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  & p {
+    margin: 12px;
+  }
+`;
