@@ -81,18 +81,22 @@ export default function useSounds() {
     {
       soundPlay: () => soundPlay("C4"),
       isPlayed: isKickPlayed,
+      id: "kick"
     },
     {
       soundPlay: () => soundPlay("D#4"),
       isPlayed: isHhPlayed,
+      id: "hh"
     },
     {
       soundPlay: () => soundPlay("F#4"),
       isPlayed: isTomPlayed,
+      id: "tom"
     },
     {
       soundPlay: () => soundPlay("A4"),
       isPlayed: isClapPlayed,
+      id: "clap"
     },
   ];
 
