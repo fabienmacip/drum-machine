@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import * as Tone from "tone";
 
 import kick from "assets/sounds/kick.wav";
@@ -9,6 +9,11 @@ import clap from "assets/sounds/clap.wav";
 export default function useSounds() {
 
   const mySampler = useRef(null);
+
+  const [isKickPlayed, setIsKickPlayed] = useState(false);
+  const [isHhPlayed, setIsHhPlayed] = useState(false);
+  const [isTomPlayed, setIsTomPlayed] = useState(false);
+  const [isClapPlayed, setIsClapPlayed] = useState(false);
 
   useEffect(() => {
     const sampler = new Tone.Sampler({
@@ -32,15 +37,31 @@ export default function useSounds() {
   function handleKeyDown({key}){
     switch(key){
       case "f":
+        setIsKickPlayed(true);
+        window.setTimeout(() => {
+          setIsKickPlayed(false)
+        }, 300);
         soundPlay("C4");
         break;
       case "d":
+        setIsHhPlayed(true);
+        window.setTimeout(() => {
+          setIsHhPlayed(false)
+        }, 300);        
         soundPlay("D#4");
         break;
       case "j":
+        setIsTomPlayed(true);
+        window.setTimeout(() => {
+          setIsTomPlayed(false)
+        }, 300);        
         soundPlay("F#4");
         break;
       case "k":
+        setIsClapPlayed(true);
+        window.setTimeout(() => {
+          setIsClapPlayed(false)
+        }, 300);        
         soundPlay("A4");
         break;
             
@@ -58,16 +79,20 @@ export default function useSounds() {
 
   const buttonsList = [
     {
-      soundPlay: () => soundPlay("C4")
+      soundPlay: () => soundPlay("C4"),
+      isPlayed: isKickPlayed,
     },
     {
-      soundPlay: () => soundPlay("D#4")
+      soundPlay: () => soundPlay("D#4"),
+      isPlayed: isHhPlayed,
     },
     {
-      soundPlay: () => soundPlay("F#4")
+      soundPlay: () => soundPlay("F#4"),
+      isPlayed: isTomPlayed,
     },
     {
-      soundPlay: () => soundPlay("A4")
+      soundPlay: () => soundPlay("A4"),
+      isPlayed: isClapPlayed,
     },
   ];
 
