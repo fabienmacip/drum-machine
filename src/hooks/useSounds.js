@@ -30,6 +30,13 @@ export default function useSounds() {
     })
   }, [])
 
+  // Chargement d'un sample personnalisé, via le bouton FILE en haut-droite de chaque pad
+  function handleSampleChange(note, file) {
+    let fileURL = URL.createObjectURL(file);
+    let buffer = new Tone.Buffer(fileURL); 
+    mySampler.current.add(note, buffer, () => alert("Sample successfully changed."));
+  }
+
   function soundPlay(note) {
     mySampler.current.triggerAttackRelease([note], 4);
   }
@@ -81,22 +88,26 @@ export default function useSounds() {
     {
       soundPlay: () => soundPlay("C4"),
       isPlayed: isKickPlayed,
-      id: "kick"
+      id: "kick",
+      handleSampleChange: (e) => handleSampleChange("C4", e.target.files[0]),
     },
     {
       soundPlay: () => soundPlay("D#4"),
       isPlayed: isHhPlayed,
-      id: "hh"
+      id: "hh",
+      handleSampleChange: (e) => handleSampleChange("D#4", e.target.files[0]),
     },
     {
       soundPlay: () => soundPlay("F#4"),
       isPlayed: isTomPlayed,
-      id: "tom"
+      id: "tom",
+      handleSampleChange: (e) => handleSampleChange("F#4", e.target.files[0]),
     },
     {
       soundPlay: () => soundPlay("A4"),
       isPlayed: isClapPlayed,
-      id: "clap"
+      id: "clap",
+      handleSampleChange: (e) => handleSampleChange("A4", e.target.files[0]),
     },
   ];
 
